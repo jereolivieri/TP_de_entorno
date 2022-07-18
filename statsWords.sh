@@ -16,8 +16,9 @@ max=0             #Inicio los contadores que voy a usar
 cont=0
 min=1
 
-for word in $(cat $1)                             #arranco a iterar por las palabras del texto y checkear lo que necesito
+for word in $(cat $clean)                             #arranco a iterar por las palabras del texto y checkear lo que necesito
 do
+  echo $word
   aux=$( echo $word | wc -m )                     #hice una variable para probar (seguramente se puede poner en la suma, pero no me salió y era más fácil con la variable)
   cont=$(( $cont + $aux ))                        #cuento para el promedio
   if [ $max -lt $( echo $word | wc -m ) ]         #el if para obtener el máximo por comparación
