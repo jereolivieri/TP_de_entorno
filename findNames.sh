@@ -8,9 +8,11 @@ then
     exit 1
 fi
 
+clean=$( cat $1 | tr -d "[:punct:]" | tr -d "..." | tr " " "\n" ) #elimino todos los signos y demás cosas por nada para facilitar la lectura del archivo
+
 patron="^[A-Z][a-z]+$"
 
-for word in $(cat $1)
+for word in $(echo $clean)
 do
    if [[ $word =~ $patron ]]
    then
