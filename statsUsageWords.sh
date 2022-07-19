@@ -4,12 +4,24 @@
 #voy a trabajar con el mismo texto, pero tengo que arreglarlo igual que en el ej1
 #cuando tenga consulta lo haré jejejeje
 
-if [ $# -ne 1 ] #Si no tengo el archivo de lectura es medio difícil qu>then
+if [ $# -ne 1 ] #Si no tengo el archivo de lectura es medio difícil
+then
     echo "Che, te faltó el archivo querido."
     exit 1
 fi
 
 #Acá pondría el clean... SI SUPIERA CÓMO SE HACE
+
+top1=1
+top2=1
+top3=1
+top4=1
+top5=1
+top6=1
+top7=1
+top8=1
+top9=1
+top10=1
 
 for word in $1
 do
@@ -23,7 +35,7 @@ aux=$(cat aux.txt)
 
 for word in $aux
 do
-   
+
 done
 
 rm aux.txt
