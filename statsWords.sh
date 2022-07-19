@@ -14,7 +14,7 @@ cantidad=$( cat $1 | wc -w ) #Cuento la cantidad
 
 max=0             #Inicio los contadores que voy a usar
 cont=0
-min=1
+min=10
 
 for word in $(cat $clean)                             #arranco a iterar por las palabras del texto y checkear lo que necesito
 do
