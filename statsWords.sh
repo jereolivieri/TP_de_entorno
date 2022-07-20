@@ -8,7 +8,7 @@ then
     exit 1
 fi
 
-clean=$( cat $1 | tr -d "[:punct:]" | tr -d "..." | tr " " "\n" ) #elimino todos los signos y demás cosas por nada para facilitar la lectura del archivo
+clean=$( cat $1 | tr -d "[:punct:]" | tr " " "\n" ) #elimino todos los signos y demás cosas por nada para facilitar la lectura del archivo
 
 cantidad=$( echo $clean | wc -w ) #Cuento la cantidad
 
@@ -18,7 +18,7 @@ min=10
 
 #echo $clean
 
-for word in $(echo $clean)                             #arranco a iterar por las palabras del texto y checkear lo que necesito
+for word in $(echo $clean)                        #arranco a iterar por las palabras del texto y checkear lo que necesito
 do
   #echo $word
   aux=$( echo $word | wc -m )                     #hice una variable para probar (seguramente se puede poner en la suma, pero no me salió y era más fácil con la variable)
