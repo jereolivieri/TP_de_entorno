@@ -18,26 +18,26 @@ min=10
 
 #echo $clean
 
+echo $( echo -n "hola" | wc -m )
+
 for word in $(echo $clean)                        #arranco a iterar por las palabras del texto y checkear lo que necesito
 do
   #echo $word
   aux=$( echo $word | wc -m )                     #hice una variable para probar (seguramente se puede poner en la suma, pero no me salió y era más fácil con la variable)
   cont=$(( $cont + $aux ))                        #cuento para el promedio
-  if [ $max -lt $( echo $word | wc -m ) ]         #el if para obtener el máximo por comparación
+  if [ $max -lt $( echo -n $word | wc -m ) ]         #el if para obtener el máximo por comparación
   then
-    max=$( echo $word | wc -m )
-    larga=$word
-  elif [ $min -gt $( echo $word | wc -m ) ]       #el if para obtener el mínimo por comparación
+    max=$( echo -n $word | wc -m )
+  elif [ $min -gt $( echo -n $word | wc -m ) ]       #el if para obtener el mínimo por comparación
   then
-    min=$( echo $word | wc -m )
-    tiquita=$word
+    min=$( echo -n $word | wc -m )
   fi
 done
 
 prom=$(($cont / $cantidad))                       #calculo el promedio
 
-echo "La palabra más larga es $larga"
-echo "El promedio de caracteres por palabras es $prom"
-echo "La palabra más corta es $tiquita"
+echo "La palabra más larga tiene $max caracteres."
+echo "El promedio de caracteres por palabras es $prom."
+echo "La palabra más corta tiene $min caracter/es."
 
 exit 0
