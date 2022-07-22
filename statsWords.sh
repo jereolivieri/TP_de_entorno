@@ -16,15 +16,10 @@ max=0             #Inicio los contadores que voy a usar
 cont=0
 min=10
 
-#echo $clean
-
-echo $( echo -n "hola" | wc -m )
-
-for word in $(echo $clean)                        #arranco a iterar por las palabras del texto y checkear lo que necesito
+for word in $(echo $clean)                           #arranco a iterar por las palabras del texto y checkear lo que necesito
 do
-  #echo $word
-  aux=$( echo $word | wc -m )                     #hice una variable para probar (seguramente se puede poner en la suma, pero no me salió y era más fácil con la variable)
-  cont=$(( $cont + $aux ))                        #cuento para el promedio
+  aux=$( echo -n $word | wc -m )                     #hice una variable para probar (seguramente se puede poner en la suma, pero no me salió y era más fácil con la variable)
+  cont=$(( $cont + $aux ))                           #cuento para el promedio
   if [ $max -lt $( echo -n $word | wc -m ) ]         #el if para obtener el máximo por comparación
   then
     max=$( echo -n $word | wc -m )
@@ -34,7 +29,7 @@ do
   fi
 done
 
-prom=$(($cont / $cantidad))                       #calculo el promedio
+prom=$(($cont / $cantidad))                          #calculo el promedio
 
 echo "La palabra más larga tiene $max caracteres."
 echo "El promedio de caracteres por palabras es $prom."
