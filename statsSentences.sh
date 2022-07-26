@@ -8,17 +8,16 @@ then
     exit 1
 fi
 
-clean=$( cat $1 | tr "? " "?\n" | tr "... " "...\n" | tr "! " "!\n" | tr ". " ".\n" | tr " " "_" ) #elimino todos los signos y demás cosas por nada para facilitar la lectura del archivo
+cat $1 | tr "?" "\n" | tr "... " "...\n" | tr "!" "!\n" | tr "." ".\n" | tr -d " " > aux.txt #elimino todos los signos y demás cosas por nada para facilitar la lectura del archivo
 
-echo $clean
+#reemplacé el espacio por nada para que todas las oraciones estén pegadas y pueda contarlas (o eso voy a tratar)
 
-max=0
-min=10
-cont=0
+#cat aux.txt
 
-#for word in $(echo $clean)
-#do
-#    echo $word
+for word in $(cat aux.txt)
+do
+    echo $word
+    echo "espacio"
 #   cont=$($cont+1)
 #   if [ $($word | wc -m) -gt max ]
 #   then
@@ -29,6 +28,8 @@ cont=0
 #       min=$($word | wc -m)
 #       corta=$word
 #   fi
-#done
+done
+
+rm aux.txt
 
 exit 0
