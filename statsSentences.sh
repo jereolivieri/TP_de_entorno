@@ -8,28 +8,36 @@ then
     exit 1
 fi
 
-cat $1 | tr "?" "\n" | tr "... " "...\n" | tr "!" "!\n" | tr "." ".\n" | tr -d " " > aux.txt #elimino todos los signos y demás cosas por nada para facilitar la lectura del archivo
+clean=$( cat $1 | sed 's/[.!?]  */&\n/g' )
 
-#reemplacé el espacio por nada para que todas las oraciones estén pegadas y pueda contarlas (o eso voy a tratar)
+cont=0
+max=0
+min=10000
+carac=0
 
-#cat aux.txt
-
-for word in $(cat aux.txt)
+IFS=$'\n'
+for sentence in $clean
 do
-    echo $word
-    echo "espacio"
-#   cont=$($cont+1)
-#   if [ $($word | wc -m) -gt max ]
-#   then
-#       max=$($word | wc -m)
-#       larga=$word
-#   elif [ $(word | wc -m) -lt min ]
-#   then
-#       min=$($word | wc -m)
-#       corta=$word
-#   fi
+#    echo $sentence
+#    echo "espacio"
+#    echo $(echo "$sentence" | wc -m)
+   cont=$(($cont+1))
+   carac=$(($carac+$(echo "$sentence" | wc -m)-2))
+   if [ $(($(echo "$sentence" | wc -m)-2)) -gt $max ]
+   then
+       max=$(($(echo "$sentence" | wc -m)-2))
+       larga=$(echo $sentence)
+   elif [ $(($(echo "$sentence" | wc -m)-2)) -lt $min ]
+   then
+       min=$(($(echo "$sentence" | wc -m)-2))
+       corta=$(echo $sentence)
+   fi
 done
 
-rm aux.txt
+prom=$(($carac/$cont))
+
+echo "La oración más larga tiene $max caracteres y es '$larga'"
+echo "La oración más corta tiene $min caracteres y es '$corta'"
+echo "El promedio de caracteres por oración es $prom"
 
 exit 0
