@@ -6,6 +6,6 @@ then
     exit 1
 fi
 
-cat $1 | wc -l
+grep -c "^$" $1
 
 exit 0
