@@ -13,6 +13,7 @@ clean=$( cat $1 | tr -d "[:punct:]" | tr " " "\n" ) #elimino todos los signos y 
 patron="^[A-Z][a-z]+$" #armo un patron para agarrar las palabras que arrancan con alguna mayúsculas
                        # y siguen después con minúsculas
 
+echo "Las palabras que se pueden considerar como nombres son:"
 for word in $(echo $clean)          #empiezo a checkear todos las palabras en clean
 do
    if [[ $word =~ $patron ]]
