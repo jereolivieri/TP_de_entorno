@@ -1,6 +1,6 @@
 #!/bin/bash
 
-### Por ahora tengo el problema que sólo toma una y no todas las palabras con la misma cantidad de palabras
+# En este hay que obtener la mayor cantidad de caracteres en una palabra, la mínima y el promedio
 
 if [ $# -ne 1 ] #Si no tengo el archivo de lectura es medio difícil que pueda hacer algo, no?"
 then
