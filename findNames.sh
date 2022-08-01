@@ -8,18 +8,17 @@ then
     exit 1
 fi
 
-clean=$( cat $1 | tr -d "[:punct:]" | tr -d "..." | tr " " "\n" ) #elimino todos los signos y demás cosas por nada para facilitar la lectura del archivo
+clean=$( cat $1 | tr -d "[:punct:]" | tr " " "\n" ) #elimino todos los signos y demás cosas por nada para facilitar la lectura del archivo
 
-patron="^[A-Z][a-z]+$"
+patron="^[A-Z][a-z]+$" #armo un patron para agarrar las palabras que arrancan con alguna mayúsculas
+                       # y siguen después con minúsculas
 
-for word in $(echo $clean)
+for word in $(echo $clean)          #empiezo a checkear todos las palabras en clean
 do
    if [[ $word =~ $patron ]]
    then
-      echo $word
+      echo $word                    #imprimo las que coinciden con la expresión regular que quiero
    fi
 done
-
-#Tengo que considerar el caso en donde las palabrass están luego de un punto, signo, etc?
 
 exit 0
