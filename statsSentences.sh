@@ -8,21 +8,21 @@ then
     exit 1
 fi
 
-clean=$( cat $1 | sed 's/[.!?]  */&\n/g' )
+clean=$( cat $1 | sed 's/[.!?]  */&\n/g' ) #Acá leo con cat el archivo,
+					 #y filtro para poder reempleazar los puntos o signos
+					 #y siguen con un espacio por lo mismo, pero con una nueva línea
 
-cont=0
+cont=0          #Inicio valores para conseguir lo que quiero
 max=0
 min=10000
 carac=0
 
-IFS=$'\n'
+IFS=$'\n'               #IFS sirve para que el for itere por nuevas líneas y no por espacios
 for sentence in $clean
 do
-#    echo $sentence
-#    echo "espacio"
-#    echo $(echo "$sentence" | wc -m)
-   cont=$(($cont+1))
-   carac=$(($carac+$(echo "$sentence" | wc -m)-2))
+   cont=$(($cont+1))    				#Contador para el promedio
+   carac=$(($carac+$(echo "$sentence" | wc -m)-2))      #empiezo a contar, pero tengo que eliminar los últimos
+							#2 espacios que se hacen después del final de la oración
    if [ $(($(echo "$sentence" | wc -m)-2)) -gt $max ]
    then
        max=$(($(echo "$sentence" | wc -m)-2))
