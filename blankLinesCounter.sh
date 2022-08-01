@@ -6,6 +6,6 @@ then
     exit 1
 fi
 
-grep -c "^$" $1
+echo "El archivo tiene $(grep -c '^$' $1) líneas blancas" #Uso una expresión regular facilita para checkear cuántas tengo
 
 exit 0
