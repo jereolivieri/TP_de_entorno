@@ -1,6 +1,18 @@
 #!/bin/bash
 
+if [ $# -ne 1 ] #Si no tengo el archivo de lectura es medio difícil que pueda hacer algo, no?"
+then
+    echo "Che, te faltó el archivo querido."
+    exit 1
+fi
 
+check=$($1 | wc -w)
+
+if [ $check -eq 0 ]
+then
+   echo "Pasame un archivo con al menos una palabra man"
+   exit 1
+fi
 
 PS3="Adelante. Elegí, estoy segura que perderás. >>>"
 echo "¿Qué ejercicio querés ejecutar?"
