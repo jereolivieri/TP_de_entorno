@@ -47,5 +47,6 @@ do
        continue
        ;;
     esac
+done
 
 exit 0
