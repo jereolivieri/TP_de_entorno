@@ -18,7 +18,7 @@ PS3="Adelante. Elegí, estoy segura que perderás. >>>"
 echo "¿Qué ejercicio querés ejecutar?"
 select opcion in "statsWords.sh" "statsUsageWords.sh" "findNames.sh" "statsSentences.sh" "blankLinesCounter.sh" "SALIR"
 do
-   case $REPLY in
+   case $opcion in
    "statsWords.sh")
        ./statsWords.sh $1
        continue
