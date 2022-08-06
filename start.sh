@@ -6,7 +6,7 @@ then
     exit 1
 fi
 
-check=$($1 | wc -w)
+check=$( cat $1 | wc -w)
 
 if [ $check -eq 0 ]
 then
