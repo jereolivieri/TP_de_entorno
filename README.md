@@ -1,6 +1,6 @@
 # TP_de_entorno
 
-Hi mom! I'm using GitHub!
+Hi mom! I'm using bash, GitHub and Docker!
 
 El programa start.sh utiliza los otros programas para resolver los ejercicios del trabajo práctico dependiendo de la opción que uno quiera:
 
@@ -15,6 +15,10 @@ promedio de longitud).
 6) salir
 
 El texto es 'La tragedia de Darth Plagueis', pero podés ponerle cualquier argumento. Si no tiene nada escrito, te va a avisar.
-Si pones más de un archivo o no pones ninguno, te avisa
 
-Aunque pongas más de uno, te dice que 'falta el archivo', pero es simplemente un aviso, podría haber sido cualquiera
+Si pones más de un archivo o no pones ninguno, te avisa. Los programas tienen esta opción para probarlos uno a uno, con un mensaje distinto
+ya que para el menú lo cambié a último momento :).
+
+
+
+
