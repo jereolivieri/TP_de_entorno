@@ -2,7 +2,7 @@
 
 if [ $# -ne 1 ] #Si no tengo el archivo de lectura es medio difícil que pueda hacer algo, no?"
 then
-    echo "Che, te faltó el archivo querido."
+    echo "Che, te faltó el archivo o pusiste más de uno querido."
     exit 1
 fi
 
