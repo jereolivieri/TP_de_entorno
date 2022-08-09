@@ -2,6 +2,12 @@
 
 Hi mom! I'm using bash, GitHub and Docker!
 
+El Dockerfile está hecho para que corra 'start.sh' leyendo como argumento el archivo 'texto.txt'. Si se ejecuta con
+
+docker run -it -v PATH:/TP_de_entorno/texto.txt NAME
+
+podemos modificar el texto para no tener que buildear 20 veces.
+
 El programa start.sh utiliza los otros programas para resolver los ejercicios del trabajo práctico dependiendo de la opción que uno quiera:
 
 1) statsWords.sh --> Indicador estadístico de longitud de palabras (la más corta, la más larga y el
